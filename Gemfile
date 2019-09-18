@@ -49,3 +49,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'enumerize'
 # Generate fake data 
 gem 'faker'
+
+# Convert number to roman 
+gem 'roman-numerals'

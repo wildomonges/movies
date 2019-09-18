@@ -15,4 +15,8 @@ class Movie < ApplicationRecord
               less_than_or_equal_to: 2020
             },
             presence: true
+
+  def release_year_in_roman
+    RomanNumerals.to_roman(release_year)
+  end
 end

@@ -18,5 +18,4 @@ class Person < ApplicationRecord
       movies.where(movie_person_roles: { role: role })
     end
   end
-
 end
