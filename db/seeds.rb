@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+ActiveRecord::Base.transaction do
+  male = Person.find_or_create_by!(last_name: Faker::Name.last_name, first_name: Faker::Name.male_first_name, gender: :male)
+  female = Person.find_or_create_by!(last_name: Faker::Name.last_name, first_name: Faker::Name.female_first_name, gender: :female)
+
+  Alias.find_or_create_by!(person: male, name: Faker::Name.male_first_name)
+  Alias.find_or_create_by!(person: female, name: Faker::Name.female_first_name)
+
+  movie1 = Movie.find_or_create_by!(title: Faker::Movie.quote, release_year: Faker::Number.within(range: 1800..2020))
+  movie2 = Movie.find_or_create_by!(title: Faker::Movie.quote, release_year: Faker::Number.within(range: 1800..2020))
+  movie3 = Movie.find_or_create_by!(title: Faker::Movie.quote, release_year: Faker::Number.within(range: 1800..2020))
+
+  MoviePersonRole.find_or_create_by!(movie: movie1, person: male, role: :actor)
+  MoviePersonRole.find_or_create_by!(movie: movie2, person: female, role: :director)
+  MoviePersonRole.find_or_create_by!(movie: movie3, person: male, role: :producer)
+end
