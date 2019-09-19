@@ -12,7 +12,7 @@ class Movie < ApplicationRecord
   validates :release_year,
             numericality: {
               greater_than_or_equal_to: 1800,
-              less_than_or_equal_to: 2020
+              less_than_or_equal_to: Time.zone.now.year
             },
             presence: true
 

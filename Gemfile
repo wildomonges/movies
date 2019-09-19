@@ -54,6 +54,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Enumerize gem
 gem 'enumerize'
 
-
 # Convert number to roman 
 gem 'roman-numerals'
+
+# Fast json serializer
+gem 'fast_jsonapi'

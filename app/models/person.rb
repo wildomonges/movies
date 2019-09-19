@@ -10,7 +10,7 @@ class Person < ApplicationRecord
   has_many :aliases, dependent: :destroy
 
   validates :last_name, :first_name, :gender, presence: true
-  validates :last_name, :first_name, length: 3..50
+  validates :last_name, :first_name, length: 2..50
 
   # Dinamic definition of instance methods based on roles
   Role.roles.each do |role|

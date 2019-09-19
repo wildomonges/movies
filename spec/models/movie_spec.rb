@@ -21,7 +21,7 @@ RSpec.describe Movie, type: :model do
       it { should validate_presence_of :release_year }
 
       it { should validate_length_of(:title).is_at_least(1).is_at_most(50) }
-      it { should validate_numericality_of(:release_year).is_greater_than_or_equal_to(1800).is_less_than_or_equal_to(2020)}
+      it { should validate_numericality_of(:release_year).is_greater_than_or_equal_to(1800).is_less_than_or_equal_to(Time.zone.now.year)}
     end
   end
 
