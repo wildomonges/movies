@@ -6,5 +6,7 @@ class MoviePersonRole < ApplicationRecord
   belongs_to :movie
   belongs_to :person
 
+  accepts_nested_attributes_for :movie, :person
+
   validates :movie, :person, :role, presence: true
 end

@@ -7,6 +7,7 @@ class Movie < ApplicationRecord
     has_many base, -> { where(role: role) }, class_name: 'MoviePersonRole'
     has_many role.to_s.pluralize.to_sym, through: base, source: :person
   end
+  has_many :movie_person_roles
 
   validates :title, length: 1..50, presence: true
   validates :release_year,
