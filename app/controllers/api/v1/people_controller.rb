@@ -12,7 +12,7 @@ class Api::V1::PeopleController < ApplicationController
   # POST /people
   def create
     person = Person.create!(person_params)
-    json_response serializer.new(person)
+    json_response serializer.new(person), :created
   end
 
   # GET /people/:id

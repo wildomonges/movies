@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module Response
-  def json_response(object, success = true, status = :ok)
-    render json: { success: success, body: object }, status: status
+  def json_response(object, status = :ok, success = true)
+    render json: { success: success }.merge!(object), status: status
   end
 end

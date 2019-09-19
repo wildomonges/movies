@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 FactoryBot.define do
@@ -11,5 +13,11 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     first_name { Faker::Name.female_first_name }
     gender { :female }
+  end
+
+  factory :person, class: Person do
+    last_name { Faker::Name.last_name }
+    first_name { Faker::Name.first_name }
+    gender { %i[male female].sample }
   end
 end
