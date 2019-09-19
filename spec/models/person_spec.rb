@@ -11,9 +11,9 @@ RSpec.describe Person, type: :model do
   end
 
   describe 'Associations' do
-    it { should have_many :movie_person_roles }
-    it { should have_many :movies }
-    it { should have_many :aliases }
+    it { should have_many(:movie_person_roles).dependent(:destroy) }
+    it { should have_many(:movies).dependent(:destroy) }
+    it { should have_many(:aliases).dependent(:destroy) }
   end
 
   describe 'validation - ' do
