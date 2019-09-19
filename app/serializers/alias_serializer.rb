@@ -2,7 +2,5 @@
 
 class AliasSerializer
   include FastJsonapi::ObjectSerializer
-  set_key_transform :camel
-
   attributes :name
 end
