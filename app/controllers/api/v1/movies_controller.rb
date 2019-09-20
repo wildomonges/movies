@@ -11,8 +11,10 @@ class Api::V1::MoviesController < ApplicationController
 
   # POST /movies
   def create
-    movie = Movie.create!(movie_params)
-    json_response serializer.new(movie), :created
+    result = CreateMovie.call(params: movie_params)
+    raise ActiveRecord::RecordInvalid unless result.success?
+
+    json_response serializer.new(result.movie), :created
   end
 
   # GET /movies/:id
@@ -43,7 +45,7 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :release_year)
+    params.require(:movie).permit(:title, :release_year, people_roles: %i[person_id role])
   end
 
   def model

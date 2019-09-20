@@ -63,3 +63,6 @@ gem 'fast_jsonapi'
 # Seachers
 gem 'ransack'
 gem 'kaminari'
+
+# Service object model
+gem 'interactor-rails', '~> 2.0'
