@@ -9,17 +9,21 @@ RSpec.describe Api::V1::PeopleController, type: :controller do
   # valid payload
   let(:valid_attributes) do
     {
-      first_name: 'MOCK_FIRST_NAME',
-      last_name: 'MOCK_LAST_NAME',
-      gender: :male
+      person: {
+        first_name: 'MOCK_FIRST_NAME',
+        last_name: 'MOCK_LAST_NAME',
+        gender: :male
+      }
     }
   end
   # invalid payload
   let(:invalid_attributes) do
     {
-      first_name: 'MOCK_FIRST_NAME',
-      last_name: 'MOCK_LAST_NAME',
-      gender: :animal
+      person: {
+        first_name: 'MOCK_FIRST_NAME',
+        last_name: 'MOCK_LAST_NAME',
+        gender: :animal
+      }
     }
   end
   describe 'GET /people' do
@@ -64,7 +68,7 @@ RSpec.describe Api::V1::PeopleController, type: :controller do
       before { post :create, params: valid_attributes }
 
       it 'creates a person' do
-        expect(json['data']['attributes']['LastName']).to eq('MOCK_LAST_NAME')
+        expect(json['data']['attributes']['last_name']).to eq('MOCK_LAST_NAME')
       end
 
       it 'returns status code 201' do
@@ -82,7 +86,15 @@ RSpec.describe Api::V1::PeopleController, type: :controller do
   end
 
   describe 'PUT /people/:id' do
-    let(:valid_attributes) { { id: '1', first_name: 'MOCK_FIRST_NAME' } }
+    let(:valid_attributes) do
+      {
+        id: '1',
+        person:
+        {
+          first_name: 'MOCK_FIRST_NAME'
+        }
+      }
+    end
 
     context 'when the record was updated' do
       before { put :update, params: valid_attributes }
