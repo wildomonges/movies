@@ -5,7 +5,7 @@ class Api::V1::MoviesController < ApplicationController
 
   # GET /movies
   def index
-    movies = Movie.all
+    movies = search
     json_response serializer.new(movies)
   end
 
@@ -44,5 +44,9 @@ class Api::V1::MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(:title, :release_year)
+  end
+
+  def model
+    Movie
   end
 end

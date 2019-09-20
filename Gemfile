@@ -59,3 +59,7 @@ gem 'roman-numerals'
 
 # Fast json serializer
 gem 'fast_jsonapi'
+
+# Seachers
+gem 'ransack'
+gem 'kaminari'

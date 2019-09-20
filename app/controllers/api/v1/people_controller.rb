@@ -5,7 +5,7 @@ class Api::V1::PeopleController < ApplicationController
 
   # GET /people
   def index
-    people = Person.all
+    people = search
     json_response serializer.new(people)
   end
 
@@ -44,5 +44,9 @@ class Api::V1::PeopleController < ApplicationController
 
   def person_params
     params.require(:person).permit(:last_name, :first_name, :gender)
+  end
+
+  def model
+    Person
   end
 end

@@ -27,8 +27,19 @@ RSpec.describe Api::V1::PeopleController, type: :controller do
     }
   end
   describe 'GET /people' do
+    let(:search_attributes) do
+      {
+        q: {
+          first_name_cont: '',
+          last_name_cont: '',
+          gender_eq: ''
+        },
+        page: 1,
+        per_page: 10
+      }
+    end
     # make HTTP get request before each example
-    before { get :index }
+    before { get :index, params: search_attributes }
 
     it 'returns people' do
       expect(json).not_to be_empty
