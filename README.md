@@ -1,4 +1,4 @@
-# MOVIE API
+# MOVIES API
 
 This api was developed using Ruby on Rails --api as challenge for IT Crowd Ruby on Rails position.
 
