@@ -38,3 +38,10 @@ Kaminari: pagination
 - dotenv: gem to use environment variables
 # AVAILABLE ENDPOINTS
 * Go go /postman/ and you'll see a postman collection file, you can open and import the file into postman.
+
+![GitHub Logo](postman/get_movies.png)
+![GitHub Logo](postman/get_person.png)
+![GitHub Logo](postman/update_person.png)
+![GitHub Logo](postman/get_movies.png)
+![GitHub Logo](postman/create_movie.png)
+![GitHub Logo](postman/destroy_movie.png)
