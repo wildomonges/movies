@@ -45,3 +45,9 @@ Kaminari: pagination
 ![GitHub Logo](postman/get_movies.png)
 ![GitHub Logo](postman/create_movie.png)
 ![GitHub Logo](postman/destroy_movie.png)
+
+# HOW TO TEST THE API
+* Sign Up a new user
+* Sign In with the user
+* Get/Show Movies and People do not require authentication
+* Create/Update/Destroy requires authentication
