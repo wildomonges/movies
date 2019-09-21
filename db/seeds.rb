@@ -14,4 +14,6 @@ ActiveRecord::Base.transaction do
   MoviePersonRole.find_or_create_by!(movie: movie1, person: male, role: :actor)
   MoviePersonRole.find_or_create_by!(movie: movie2, person: female, role: :director)
   MoviePersonRole.find_or_create_by!(movie: movie3, person: male, role: :producer)
+
+  User.find_or_create_by!(email: 'wil@test.com', password: 'password')
 end

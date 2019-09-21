@@ -54,15 +54,21 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Enumerize gem
 gem 'enumerize'
 
-# Convert number to roman 
+# Convert number to roman
 gem 'roman-numerals'
 
 # Fast json serializer
 gem 'fast_jsonapi'
 
 # Seachers
-gem 'ransack'
 gem 'kaminari'
+gem 'ransack'
 
 # Service object model
 gem 'interactor-rails', '~> 2.0'
+
+# authentication
+gem 'devise'
+gem 'devise-jwt'
+
+gem 'dotenv-rails', groups: %i[development test]

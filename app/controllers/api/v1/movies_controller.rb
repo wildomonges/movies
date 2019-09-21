@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::MoviesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_movie, only: %i[show update destroy]
 
   # GET /movies

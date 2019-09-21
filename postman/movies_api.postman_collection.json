@@ -11,9 +11,28 @@
 			"item": [
 				{
 					"name": "GET people",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"q\": {\n\t\t\"first_name_cont\": \"hila\",\n\t\t\"last_name_cont\": \"\",\n\t\t\"gender_cont\": \"\"\n\t},\n\t\"page\": 1,\n\t\"per_page\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3000/api/v1/people/",
 							"protocol": "http",
@@ -58,6 +77,16 @@
 				{
 					"name": "POST create",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTY5MDEzNDQ2LCJleHAiOjE1NjkwOTk4NDYsImp0aSI6IjJmYTYxYWMyLTQ2OGYtNDdkMy04N2Y0LWRkY2VjZjIxODc5OCJ9.s3wBjCEvWC_WN1mrfUEcAApCvXSIbQbnRV9MCORZ84w",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -69,7 +98,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Wildo\",\n\t\"last_name\": \"Monges\",\n\t\"gender\": \"other\"\n\t\n}"
+							"raw": "{\n\t\"person\" : {\n\t\t\"first_name\": \"Juan A\",\n\t\t\"last_name\": \"Valiente\",\n\t\t\"gender\": \"male\"\n\t}\n\t\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/v1/people/",
@@ -92,6 +121,16 @@
 				{
 					"name": "PUT update",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTY5MDEzNDQ2LCJleHAiOjE1NjkwOTk4NDYsImp0aSI6IjJmYTYxYWMyLTQ2OGYtNDdkMy04N2Y0LWRkY2VjZjIxODc5OCJ9.s3wBjCEvWC_WN1mrfUEcAApCvXSIbQbnRV9MCORZ84w",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
@@ -103,7 +142,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"Andres\"\n}"
+							"raw": "{\n\t\"person\": {\n\t\t\"first_name\": \"Andres\"\n\t}\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/v1/people/3",
@@ -122,6 +161,39 @@
 						"description": "update person "
 					},
 					"response": []
+				},
+				{
+					"name": "DELETE destroy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTY5MDEzNDQ2LCJleHAiOjE1NjkwOTk4NDYsImp0aSI6IjJmYTYxYWMyLTQ2OGYtNDdkMy04N2Y0LWRkY2VjZjIxODc5OCJ9.s3wBjCEvWC_WN1mrfUEcAApCvXSIbQbnRV9MCORZ84w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/people/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"people",
+								"4"
+							]
+						},
+						"description": "Remove a person from db"
+					},
+					"response": []
 				}
 			]
 		},
@@ -130,9 +202,28 @@
 			"item": [
 				{
 					"name": "GET movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"q\": {\n\t\t\"title_cont\": \"\"\n\t},\n\t\"page\": 1,\n\t\"per_page\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3000/api/v1/movies/",
 							"protocol": "http",
@@ -175,6 +266,16 @@
 				{
 					"name": "POST create",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTY5MDEzNDQ2LCJleHAiOjE1NjkwOTk4NDYsImp0aSI6IjJmYTYxYWMyLTQ2OGYtNDdkMy04N2Y0LWRkY2VjZjIxODc5OCJ9.s3wBjCEvWC_WN1mrfUEcAApCvXSIbQbnRV9MCORZ84w",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -186,7 +287,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\": \"El mago\",\n\t\"release_year\": 2015\n}"
+							"raw": "{\n\t\"movie\": {\n\t\t\"title\": \"Thor\",\n\t\t\"release_year\": 2018,\n\t\t\"people_roles\": [\n\t\t\t{\"person_id\": 1, \"role\": \"actor\" },\n\t\t\t{\"person_id\": 2, \"role\": \"director\"},\n\t\t\t{\"person_id\": 3, \"role\": \"director\"}\n\t\t]\n\t}\n}"
 						},
 						"url": {
 							"raw": "http://localhost:3000/api/v1/movies/",
@@ -204,9 +305,156 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "PUT update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"movie\": {\n\t\t\"title\": \"Despues de la luna\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE destroy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNTY5MDEzNDQ2LCJleHAiOjE1NjkwOTk4NDYsImp0aSI6IjJmYTYxYWMyLTQ2OGYtNDdkMy04N2Y0LWRkY2VjZjIxODc5OCJ9.s3wBjCEvWC_WN1mrfUEcAApCvXSIbQbnRV9MCORZ84w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/v1/movies/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"movies",
+								"4"
+							]
+						},
+						"description": "Remove a movie from db"
+					},
+					"response": []
 				}
 			],
 			"description": "movies endpoint"
+		},
+		{
+			"name": "sign_up",
+			"item": [
+				{
+					"name": "POST signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"email\": \"tester@test.com\",\n\t\t\"password\": \"password\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "sign_in",
+			"item": [
+				{
+					"name": "POST /login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "sign in with valid email and password",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "25f9427f-1ed8-4889-a506-cd05b9c46387",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9306c81-526b-4a82-aa29-bb2005ad6147",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	]
 }
