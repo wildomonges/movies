@@ -7,13 +7,12 @@ ActiveRecord::Base.transaction do
   Alias.find_or_create_by!(person: male, name: Faker::Name.male_first_name)
   Alias.find_or_create_by!(person: female, name: Faker::Name.female_first_name)
 
-  movie1 = Movie.find_or_create_by!(title: Faker::Movie.quote, release_year: Faker::Number.within(range: 1800..2020))
-  movie2 = Movie.find_or_create_by!(title: Faker::Movie.quote, release_year: Faker::Number.within(range: 1800..2020))
-  movie3 = Movie.find_or_create_by!(title: Faker::Movie.quote, release_year: Faker::Number.within(range: 1800..2020))
+  movie1 = Movie.find_or_create_by!(title: Faker::Name.first_name, release_year: Faker::Number.within(range: 1800..2020))
+  movie2 = Movie.find_or_create_by!(title: Faker::Name.first_name, release_year: Faker::Number.within(range: 1800..2020))
+  movie3 = Movie.find_or_create_by!(title: Faker::Name.first_name, release_year: Faker::Number.within(range: 1800..2020))
 
   MoviePersonRole.find_or_create_by!(movie: movie1, person: male, role: :actor)
   MoviePersonRole.find_or_create_by!(movie: movie2, person: female, role: :director)
   MoviePersonRole.find_or_create_by!(movie: movie3, person: male, role: :producer)
 
-  User.find_or_create_by!(email: 'wil@test.com', password: 'password')
 end

@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_09_20_194243) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "aliases", force: :cascade do |t|
     t.string "name", limit: 50, null: false
-    t.integer "person_id"
+    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["person_id"], name: "index_aliases_on_person_id"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 2019_09_20_194243) do
   end
 
   create_table "movie_person_roles", force: :cascade do |t|
-    t.integer "movie_id"
-    t.integer "person_id"
+    t.bigint "movie_id"
+    t.bigint "person_id"
     t.string "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,4 +67,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_194243) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "aliases", "people"
+  add_foreign_key "movie_person_roles", "movies"
+  add_foreign_key "movie_person_roles", "people"
 end
