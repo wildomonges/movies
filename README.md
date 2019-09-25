@@ -25,6 +25,7 @@ Kaminari: pagination <br>
 - Ruby on Rails (5.2.3): I decided to use this framework because the postion is for ruby on rails role.
 - Postgresql: It is a great database engine to store a ton of movies as well as it has a big community.
 - Authentication: Devise gem to generate user model and jwt-devise gem to generate token for the api.
+- FastJson: json api gem 25x faster than active record serializer.
 - Ransack: used to search based on params sent from frontend.
 - Kaminari: used to paginate pulled data from database.
 - rspec-rails: gem used to tests models, requests.
